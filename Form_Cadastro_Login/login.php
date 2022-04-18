@@ -1,6 +1,7 @@
 <?php
 // require_once './conexao.php';
-require_once 'conexao.php';
+// require_once 'conexao.php';
+require_once './Classes.php';
 session_start();
 
 
@@ -8,7 +9,7 @@ session_start();
 if(isset ($_POST['logar-login'])){  
 $nome = $_POST['nome'];
 $senha = md5($_POST['senha']);
-$sql = $pdo->prepare("SELECT * FROM `tb_login.clientes` WHERE nome = ? and senha = ?");
+$sql = PdoConnect::conectar()->prepare("SELECT * FROM `tb_login.clientes` WHERE nome = ? and senha = ?");
 $sql->execute(array($nome,$senha));
 if($sql->rowCount() == 1 ){ //rowCount() quer dizer ---> Se a querry retornar 1
     $teste = $sql->fetch();
