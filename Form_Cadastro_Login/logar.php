@@ -55,6 +55,7 @@ function cargos($c){
     "0" => "Usuário",
     "1" => "Administrador"
 ];  
+
     // valores do banco atribuídos aos seus respectivos nomes
 
     return $arr[$c]; 
